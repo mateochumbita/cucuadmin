@@ -93,7 +93,7 @@ const SidebarStyled = styled.nav<{ collapsed: boolean }>`
   flex-direction: column;
   justify-content: space-between;
 
-  color: ${(props) => props.theme.colorGrey3};
+  color: black;
 
   @media screen and (max-width: 768px) {
     position: fixed;
@@ -152,7 +152,7 @@ const SidebarStyled = styled.nav<{ collapsed: boolean }>`
     cursor: pointer;
 
     font-weight: 500;
-    color: ${(props) => props.theme.colorGrey0};
+    color: black;
 
     display: flex;
     align-items: center;

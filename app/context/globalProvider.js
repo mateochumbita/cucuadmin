@@ -54,12 +54,12 @@ export const GlobalProvider = ({ children }) => {
   const deleteTask = async (id) => {
     try {
       const res = await axios.delete(`/api/tasks/${id}`);
-      toast.success("Task deleted");
+      toast.success("Eliminado");
 
       allTasks();
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
+      toast.error("Algo salio mal");
     }
   };
 
@@ -67,12 +67,12 @@ export const GlobalProvider = ({ children }) => {
     try {
       const res = await axios.put(`/api/tasks`, task);
 
-      toast.success("Task updated");
+      toast.success("Actualizado");
 
       allTasks();
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
+      toast.error("Algo salio mal");
     }
   };
 

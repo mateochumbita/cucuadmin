@@ -24,3 +24,8 @@ export const admin = <i className="fa-solid fa-lock"></i>;
 export const linked = <i className="fa-brands fa-linkedin"></i>;
 export const mailIcon = <i className="fa-solid fa-envelope"></i>;
 export const plus = <i className="fa-solid fa-plus fa-beat-fade"></i>;
+export const coffee = <i className="fa-solid fa-coffee"></i>;
+export const incomplete = <i className="fa-solid fa-circle-notch"></i>; // Un círculo parcialmente lleno
+export const unfinished = <i className="fa-solid fa-square"></i>; // Un cuadrado sin rellenar completamente
+export const pending = <i className="fa-solid fa-clock"></i>; // Un reloj que sugiere algo en espera o en progreso
+export const xIcon = <i className="fa-solid fa-times"></i>;

@@ -11,6 +11,7 @@ function CreateContent() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
+  const [checkout, setCheckout] = useState("");
   const [completed, setCompleted] = useState(false);
   const [important, setImportant] = useState(false);
 
@@ -26,6 +27,9 @@ function CreateContent() {
         break;
       case "date":
         setDate(e.target.value);
+        break;
+      case "checkout":
+        setCheckout(e.target.value);
         break;
       case "completed":
         setCompleted(e.target.checked);
@@ -45,6 +49,7 @@ function CreateContent() {
       title,
       description,
       date,
+      checkout,
       completed,
       important,
     };
@@ -57,43 +62,43 @@ function CreateContent() {
       }
 
       if (!res.data.error) {
-        toast.success("Task created successfully.");
+        toast.success("Creado con éxito!");
         allTasks();
         closeModal();
       }
     } catch (error) {
-      toast.error("Something went wrong.");
+      toast.error("Algo salió mal");
       console.log(error);
     }
   };
 
   return (
     <CreateContentStyled onSubmit={handleSubmit} theme={theme}>
-      <h1>Create a Task</h1>
+      <h1>Crear una reserva</h1>
       <div className="input-control">
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title">Título</label>
         <input
           type="text"
           id="title"
           value={title}
           name="title"
           onChange={handleChange("title")}
-          placeholder="e.g, Watch a video from Fireship."
+          placeholder="Habitación (nro)"
         />
       </div>
       <div className="input-control">
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description">Descripcion</label>
         <textarea
           value={description}
           onChange={handleChange("description")}
           name="description"
           id="description"
           rows={4}
-          placeholder="e.g, Watch a video about Next.js Auth"
+          placeholder="Descripción de la reserva"
         ></textarea>
       </div>
       <div className="input-control">
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Check-In</label>
         <input
           value={date}
           onChange={handleChange("date")}
@@ -102,8 +107,18 @@ function CreateContent() {
           id="date"
         />
       </div>
+      <div className="input-control">
+        <label htmlFor="checkout">Check-Out</label>
+        <input
+          value={checkout}
+          onChange={handleChange("checkout")}
+          type="date"
+          name="checkout"
+          id="checkout"
+        />
+      </div>
       <div className="input-control toggler">
-        <label htmlFor="completed">Toggle Completed</label>
+        <label htmlFor="completed">CheckOut hecho</label>
         <input
           value={completed.toString()}
           onChange={handleChange("completed")}
@@ -113,7 +128,7 @@ function CreateContent() {
         />
       </div>
       <div className="input-control toggler">
-        <label htmlFor="important">Toggle Important</label>
+        <label htmlFor="important">Desayuno</label>
         <input
           value={important.toString()}
           onChange={handleChange("important")}
@@ -126,7 +141,7 @@ function CreateContent() {
       <div className="submit-btn flex justify-end">
         <Button
           type="submit"
-          name="Create Task"
+          name="Crear reserva"
           icon={add}
           padding={"0.8rem 2rem"}
           borderRad={"0.8rem"}
@@ -139,22 +154,25 @@ function CreateContent() {
   );
 }
 
+
 const CreateContentStyled = styled.form`
   > h1 {
     font-size: clamp(1.2rem, 5vw, 1.6rem);
     font-weight: 600;
   }
 
-  color: ${(props) => props.theme.colorGrey1};
+  color: black;
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: whitesmoke;
+    border-radius: 30%;
+    padding: 4px;
+  }
 
   .input-control {
     position: relative;
     margin: 1.6rem 0;
     font-weight: 500;
-
-    @media screen and (max-width: 450px) {
-      margin: 1rem 0;
-    }
 
     label {
       margin-bottom: 0.5rem;
@@ -162,7 +180,7 @@ const CreateContentStyled = styled.form`
       font-size: clamp(0.9rem, 5vw, 1.2rem);
 
       span {
-        color: ${(props) => props.theme.colorGrey3};
+        color: black;
       }
     }
 
@@ -170,10 +188,9 @@ const CreateContentStyled = styled.form`
     textarea {
       width: 100%;
       padding: 1rem;
-
       resize: none;
-      background-color: ${(props) => props.theme.colorGreyDark};
-      color: ${(props) => props.theme.colorGrey2};
+      background-color: whitesmoke;
+      color: black;
       border-radius: 0.5rem;
     }
   }
@@ -181,23 +198,8 @@ const CreateContentStyled = styled.form`
   .submit-btn button {
     transition: all 0.35s ease-in-out;
 
-    @media screen and (max-width: 500px) {
-      font-size: 0.9rem !important;
-      padding: 0.6rem 1rem !important;
-
-      i {
-        font-size: 1.2rem !important;
-        margin-right: 0.5rem !important;
-      }
-    }
-
     i {
       color: ${(props) => props.theme.colorGrey0};
-    }
-
-    &:hover {
-      background: ${(props) => props.theme.colorPrimaryGreen} !important;
-      color: ${(props) => props.theme.colorWhite} !important;
     }
   }
 
@@ -205,7 +207,6 @@ const CreateContentStyled = styled.form`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     cursor: pointer;
 
     label {
@@ -216,6 +217,23 @@ const CreateContentStyled = styled.form`
       width: initial;
     }
   }
+
+  @media screen and (max-width: 450px) {
+    .input-control {
+      margin: 0;
+    }
+
+    .submit-btn button {
+      font-size: 0.9rem !important;
+      padding: 0.6rem 1rem !important;
+
+      i {
+        font-size: 1.2rem !important;
+        margin-right: 0.5rem !important;
+      }
+    }
+  }
 `;
 
 export default CreateContent;
+

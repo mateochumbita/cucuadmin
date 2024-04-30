@@ -5,7 +5,7 @@ import Tasks from "../Components/Tasks/Tasks";
 
 function page() {
   const { importantTasks } = useGlobalState();
-  return <Tasks title="Important Tasks" tasks={importantTasks} />;
+  return <Tasks title="Reservas con desayuno" tasks={importantTasks} />;
 }
 
 export default page;

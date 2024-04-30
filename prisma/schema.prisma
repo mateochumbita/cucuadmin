@@ -16,6 +16,7 @@ model Task{
   title       String
   description String?
   date        String
+  checkout    String
   isCompleted Boolean   @default(false)
   isImportant Boolean   @default(false)
 

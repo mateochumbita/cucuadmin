@@ -5,7 +5,7 @@ import Tasks from "../Components/Tasks/Tasks";
 
 function page() {
   const { incompleteTasks } = useGlobalState();
-  return <Tasks title="Incomplete Tasks" tasks={incompleteTasks} />;
+  return <Tasks title="Reservas sin checkout" tasks={incompleteTasks} />;
 }
 
 export default page;

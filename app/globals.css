@@ -17,9 +17,9 @@
 }
 
 body {
-  background-color: #181818;
+  background-color: whitesmoke;
   font-size: 17px;
-  color: #fff;
+  color: black;
 
   height: 100vh;
 }
@@ -27,12 +27,14 @@ body {
 input,
 textarea,
 button {
+  color: black;
   border: none;
   outline: none;
   background: transparent;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
+  color: black;
   filter: invert(1);
   font-size: 1.5rem;
   cursor: pointer;

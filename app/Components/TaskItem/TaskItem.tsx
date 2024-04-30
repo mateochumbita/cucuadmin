@@ -9,17 +9,21 @@ interface Props {
   title: string;
   description: string;
   date: string;
+  checkout: string;
   isCompleted: boolean;
   id: string;
 }
 
-function TaskItem({ title, description, date, isCompleted, id }: Props) {
+function TaskItem({ title, description, date, checkout, isCompleted, id }: Props) {
   const { theme, deleteTask, updateTask } = useGlobalState();
   return (
     <TaskItemStyled theme={theme}>
       <h1>{title}</h1>
       <p>{description}</p>
-      <p className="date">{formatDate(date)}</p>
+      <p className="date">
+        <b>Check-In:</b> {formatDate(date)}</p>
+      <p className="date">
+        <b>Check-Out:</b> {formatDate(checkout)}</p>
       <div className="task-footer">
         {isCompleted ? (
           <button
@@ -33,7 +37,7 @@ function TaskItem({ title, description, date, isCompleted, id }: Props) {
               updateTask(task);
             }}
           >
-            Completed
+            Check-Out
           </button>
         ) : (
           <button
@@ -47,10 +51,10 @@ function TaskItem({ title, description, date, isCompleted, id }: Props) {
               updateTask(task);
             }}
           >
-            Incomplete
+            Check-In
           </button>
         )}
-        <button className="edit">{edit}</button>
+        
         <button
           className="delete"
           onClick={() => {
@@ -97,7 +101,7 @@ const TaskItemStyled = styled.div`
 
       i {
         font-size: 1.4rem;
-        color: ${(props) => props.theme.colorGrey2};
+        color: black};
       }
     }
 

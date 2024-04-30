@@ -10,18 +10,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Unauthorized", status: 401 });
     }
 
-    const { title, description, date, completed, important } = await req.json();
+    const { title, description, date, checkout, completed, important } = await req.json();
 
-    if (!title || !description || !date) {
+    if (!title || !description || !date || !checkout) {
       return NextResponse.json({
-        error: "Missing required fields",
+        error: "Debes llenar los campos obligatorios",
         status: 400,
       });
     }
 
     if (title.length < 3) {
       return NextResponse.json({
-        error: "Title must be at least 3 characters long",
+        error: "El título debe tener al menos 3 caracteres",
         status: 400,
       });
     }
@@ -31,6 +31,7 @@ export async function POST(req: Request) {
         title,
         description,
         date,
+        checkout,
         isCompleted: completed,
         isImportant: important,
         userId,
@@ -40,7 +41,7 @@ export async function POST(req: Request) {
     return NextResponse.json(task);
   } catch (error) {
     console.log("ERROR CREATING TASK: ", error);
-    return NextResponse.json({ error: "Error creating task", status: 500 });
+    return NextResponse.json({ error: "Error creando la reserva", status: 500 });
   }
 }
 

@@ -31,13 +31,14 @@ function Tasks({ title, tasks }: Props) {
             title={task.title}
             description={task.description}
             date={task.date}
+            checkout={task.checkout}
             isCompleted={task.isCompleted}
             id={task.id}
           />
         ))}
         <button className="create-task" onClick={openModal}>
           {add}
-          Add New Task
+          Agregar nueva reserva
         </button>
       </div>
     </TaskStyled>
@@ -70,7 +71,7 @@ const TaskStyled = styled.main`
     background-color: ${(props) => props.theme.colorBg};
     border: 2px solid ${(props) => props.theme.borderColor2};
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
-    color: ${(props) => props.theme.colorGrey2};
+    color: black;
     font-size: 1.4rem;
 
     display: flex;
@@ -111,7 +112,7 @@ const TaskStyled = styled.main`
     gap: 0.5rem;
 
     height: 16rem;
-    color: ${(props) => props.theme.colorGrey2};
+    color: black;
     font-weight: 600;
     cursor: pointer;
     border-radius: 1rem;
@@ -124,8 +125,7 @@ const TaskStyled = styled.main`
     }
 
     &:hover {
-      background-color: ${(props) => props.theme.colorGrey5};
-      color: ${(props) => props.theme.colorGrey0};
+      
     }
   }
 `;
