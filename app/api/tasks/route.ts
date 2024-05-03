@@ -55,6 +55,7 @@ export async function GET(req: Request) {
 
     const tasks = await prisma.task.findMany({
       where: {
+        userId,
       },
     });
 
