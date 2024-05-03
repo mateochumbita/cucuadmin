@@ -74,7 +74,7 @@ function CreateContent() {
 
   return (
     <CreateContentStyled onSubmit={handleSubmit} theme={theme}>
-      <h1>Crear una reserva</h1>
+      <h1>Crear una habitación</h1>
       <div className="input-control">
         <label htmlFor="title">Título</label>
         <input
@@ -118,7 +118,7 @@ function CreateContent() {
         />
       </div>
       <div className="input-control toggler">
-        <label htmlFor="completed">CheckOut hecho</label>
+        <label htmlFor="completed">¿Está desocupada?</label>
         <input
           value={completed.toString()}
           onChange={handleChange("completed")}

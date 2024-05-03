@@ -37,7 +37,7 @@ function TaskItem({ title, description, date, checkout, isCompleted, id }: Props
               updateTask(task);
             }}
           >
-            Check-Out
+            Desocupado
           </button>
         ) : (
           <button
@@ -51,7 +51,7 @@ function TaskItem({ title, description, date, checkout, isCompleted, id }: Props
               updateTask(task);
             }}
           >
-            Check-In
+            Ocupado
           </button>
         )}
         

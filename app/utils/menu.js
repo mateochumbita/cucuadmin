@@ -7,22 +7,17 @@ const menu = [
     icon: home,
     link: "/",
   },
-  {
-    id: 2,
-    title: "Con desayuno",
-    icon: coffee,
-    link: "/important",
-  },
+  
   {
     id: 3,
-    title: "Con CheckOut",
-    icon: check,
+    title: "Desocupadas",
+    icon: xIcon,
     link: "/completed",
   },
   {
     id: 4,
-    title: "Sin CheckOut",
-    icon: xIcon,
+    title: "Ocupadas",
+    icon: check,
     link: "/incomplete",
   },
 ];
