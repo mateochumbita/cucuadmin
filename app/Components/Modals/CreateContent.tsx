@@ -127,17 +127,6 @@ function CreateContent() {
           id="completed"
         />
       </div>
-      <div className="input-control toggler">
-        <label htmlFor="important">Desayuno</label>
-        <input
-          value={important.toString()}
-          onChange={handleChange("important")}
-          type="checkbox"
-          name="important"
-          id="important"
-        />
-      </div>
-
       <div className="submit-btn flex justify-end">
         <Button
           type="submit"
