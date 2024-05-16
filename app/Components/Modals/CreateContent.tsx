@@ -130,7 +130,7 @@ function CreateContent() {
       <div className="submit-btn flex justify-end">
         <Button
           type="submit"
-          name="Crear reserva"
+          name="Crear Habitación"
           icon={add}
           padding={"0.8rem 2rem"}
           borderRad={"0.8rem"}
