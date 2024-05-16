@@ -38,7 +38,7 @@ function Tasks({ title, tasks }: Props) {
         ))}
         <button className="create-task" onClick={openModal}>
           {add}
-          Agregar nueva reserva
+          Agregar nueva Habitación
         </button>
       </div>
     </TaskStyled>
